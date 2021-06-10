@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <Container>
+      <Container className='py-3'>
         <h1>Home section</h1>
       </Container>
       <Footer />
