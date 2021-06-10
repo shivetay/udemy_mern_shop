@@ -1,9 +1,14 @@
 import React from 'react';
 
+import Home from './components/views/Home/Home';
+import MainLayout from './components/views/MainLayout/MainLayout';
+
 const App = () => {
   return (
     <div className='App'>
-      <h1>main app</h1>
+      <MainLayout>
+        <Home />
+      </MainLayout>
     </div>
   );
 };
