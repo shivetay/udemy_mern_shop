@@ -8,7 +8,7 @@ const Products = () => {
   return (
     <Fragment>
       {products.map((product) => (
-        <Product productData={product} />
+        <Product key={product._id} productData={product} />
       ))}
     </Fragment>
   );
