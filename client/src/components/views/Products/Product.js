@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Card } from 'react-bootstrap';
-import Raiting from '../../features/Ratings/Raiting';
+import Rating from '../../features/Ratings/Rating';
 
 const Product = ({ productData }) => {
   return (
@@ -15,7 +15,7 @@ const Product = ({ productData }) => {
           <Card.Title as='div'>{productData.name}</Card.Title>
         </a>
         <Card.Text as='div'>
-          <Raiting
+          <Rating
             value={productData.rating}
             text={`${productData.numReviews} reviews`}
           />
