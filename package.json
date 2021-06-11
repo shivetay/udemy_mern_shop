@@ -2,6 +2,7 @@
   "name": "udemy_mern_shop",
   "version": "1.0.0",
   "main": "server.js",
+  "type": "module",
   "repository": "https://github.com/shivetay/udemy_mern_shop.git",
   "author": "Łukasz Dawidowicz <lddev@outlook.com>",
   "license": "MIT",
