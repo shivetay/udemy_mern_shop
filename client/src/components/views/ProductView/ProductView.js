@@ -5,7 +5,7 @@ import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap';
 
 import Rating from '../../features/Ratings/Rating';
 
-import products from '../../../products';
+import products from '../../../../../data/products';
 
 const ProductView = ({ match }) => {
   const product = products.find((p) => p._id === match.params.id);

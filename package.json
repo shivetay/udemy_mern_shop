@@ -1,0 +1,11 @@
+{
+  "name": "udemy_mern_shop",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "https://github.com/shivetay/udemy_mern_shop.git",
+  "author": "Łukasz Dawidowicz <lddev@outlook.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

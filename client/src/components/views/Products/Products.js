@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 
 import Product from './Product';
 
-import products from '../../../products';
+import products from '../../../../../data/products';
 
 const Products = () => {
   return (
