@@ -1,14 +1,26 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
+import axios from 'axios';
 
 import { Link } from 'react-router-dom';
 import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap';
 
 import Rating from '../../features/Ratings/Rating';
 
-import products from '../../../../../data/products';
+// import products from '../../../../../data/products';
 
 const ProductView = ({ match }) => {
-  const product = products.find((p) => p._id === match.params.id);
+  const [product, setProduct] = useState([]);
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const { data } = await axios.get(`/api/products/${match.params.id}`);
+
+      setProduct(data);
+    };
+    fetchProduct();
+  }, []);
+
+  // const product = products.find((p) => p._id === match.params.id);
   /*
 products.find(p => p._id === match.params.id) will get one product from dummy array in product.js
 */

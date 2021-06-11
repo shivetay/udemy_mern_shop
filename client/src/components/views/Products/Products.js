@@ -1,10 +1,20 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
+import axios from 'axios';
 
 import Product from './Product';
 
-import products from '../../../../../data/products';
-
 const Products = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const { data } = await axios.get('/api/products');
+
+      setProducts(data);
+    };
+    fetchProducts();
+  }, []);
+
   return (
     <Fragment>
       {products.map((product) => (
