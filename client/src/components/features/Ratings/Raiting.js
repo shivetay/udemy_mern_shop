@@ -72,6 +72,7 @@ const Raiting = ({ value, text, color }) => {
 Raiting.propTypes = {
   value: PropTypes.number,
   text: PropTypes.string,
+  color: PropTypes.string,
 };
 
 Raiting.defaultProps = {
