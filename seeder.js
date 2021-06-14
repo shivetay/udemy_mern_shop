@@ -3,9 +3,9 @@ import dotenv from 'dotenv';
 import colors from 'colors';
 import users from './data/users.js';
 import products from './data/products.js';
-import User from './models/userModel.js';
-import Product from './models/productModel.js';
-import Order from './models/orderModel.js';
+import User from './models/user.model.js';
+import Product from './models/product.model.js';
+import Order from './models/order.model.js';
 import connectDB from './config/db.js';
 
 dotenv.config();
@@ -20,6 +20,7 @@ const importData = async () => {
 
     const createdUsers = await User.insertMany(users);
 
+    //! this will get admin user from createdUsers and get product and amind that created product
     const adminUser = createdUsers[0]._id;
 
     const sampleProducts = products.map((product) => {
