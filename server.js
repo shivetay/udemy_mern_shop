@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import morgan from 'morgan';
 
 import connectDB from './config/db.js';
+import { notFound, errorHandler } from './middleware/middleware.js';
 
 import productRoutes from './routes/product.routes.js';
 
@@ -22,14 +23,8 @@ app.use(
     methods: 'GET, POST, PUT, PATCH, DELETE',
   })
 );
-app.use((err, req, res, next) => {
-  const error = res.statusCode === 200 ? 500 : res.statusCode;
-  res.status(statusCode);
-  res.json({
-    message: err.message,
-    stack: process.env.NODE_ENV === 'production' ? null : err.stack,
-  });
-});
+// app.use(notFound);
+app.use(errorHandler);
 
 /* routes */
 app.get('/', (req, res) => {
