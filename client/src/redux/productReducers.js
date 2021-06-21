@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 /* action name creator */
 const reducerName = 'project';
 const createActionName = (name) => `app/${reducerName}/${name}`;
@@ -24,6 +26,21 @@ export const productListFail = (payload) => ({
   payload,
   type: PRODUCT_FAIL_LIST,
 });
+
+/* thunks */
+export const listProducts = () => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.get(`/api/products`);
+      dispatch(getProductList({ name: PRODUCT_LIST_REQUEST }));
+      dispatch(productListSuccess(data));
+    } catch (err) {
+      dispatch(productListFail({ payload: err, name: PRODUCT_FAIL_LIST }));
+    }
+  };
+};
+
+/* reducer */
 
 export const productListReducer = (state = { products: [] }, action) => {
   switch (action.type) {
