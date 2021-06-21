@@ -1,24 +1,23 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { Fragment, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap';
 
+import { detailsProduct } from '../../../redux/productReducers';
 import Rating from '../../features/Ratings/Rating';
 
 // import products from '../../../../../data/products';
 
 const ProductView = ({ match }) => {
-  const [product, setProduct] = useState([]);
+  const dispatch = useDispatch();
+  const productDetails = useSelector((state) => state.productDetails);
+
+  const { loading, error, ...product } = productDetails;
 
   useEffect(() => {
-    const fetchProduct = async () => {
-      const { data } = await axios.get(`/api/products/${match.params.id}`);
-
-      setProduct(data);
-    };
-    fetchProduct();
-  }, [match]);
+    dispatch(detailsProduct(match.params.id));
+  }, [dispatch]);
 
   // const product = products.find((p) => p._id === match.params.id);
   /*
