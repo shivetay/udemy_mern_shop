@@ -13,11 +13,11 @@ const ProductView = ({ match }) => {
   const dispatch = useDispatch();
   const productDetails = useSelector((state) => state.productDetails);
 
-  const { loading, error, ...product } = productDetails;
+  const { loading, error, product } = productDetails;
 
   useEffect(() => {
     dispatch(detailsProduct(match.params.id));
-  }, [dispatch]);
+  }, [dispatch, match]);
 
   // const product = products.find((p) => p._id === match.params.id);
   /*
@@ -41,7 +41,7 @@ products.find(p => p._id === match.params.id) will get one product from dummy ar
             <ListGroup.Item>
               <Rating
                 value={product.rating}
-                text={`${product.numReviews} reviews`}
+                text={`${product.numreviews} reviews`}
               />
             </ListGroup.Item>
             <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
