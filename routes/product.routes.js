@@ -1,6 +1,5 @@
 import express from 'express';
-import Product from '../models/product.model.js';
-import asyncHandler from 'express-async-handler';
+import { getProducts, getProductById } from '../controllers/product.controller';
 
 const router = express.Router();
 
@@ -10,13 +9,7 @@ const router = express.Router();
 @route /api/products
 @access public
 */
-router.get(
-  '/',
-  asyncHandler(async (req, res) => {
-    const products = await Product.find({});
-    res.json(products);
-  })
-);
+router.get('/', getProducts);
 
 /*
 @description: get one product
@@ -24,18 +17,6 @@ router.get(
 @route /api/products/:id
 @access public
 */
-router.get(
-  '/:id',
-  asyncHandler(async (req, res) => {
-    const product = await Product.findById(req.params.id);
-
-    if (product) {
-      res.json(product);
-    } else {
-      res.status(404);
-      throw new Error('Product not found');
-    }
-  })
-);
+router.get('/:id', getProductById);
 
 export default router;
