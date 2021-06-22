@@ -5,6 +5,7 @@ import Home from './components/views/Home/Home';
 import ProductView from './components/views/ProductView/ProductView';
 
 import MainLayout from './components/views/MainLayout/MainLayout';
+import CartScreen from './components/features/Cart/CartScreen';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <MainLayout>
           <Route exact path='/' component={Home} />
           <Route exact path='/product/:id' component={ProductView} />
+          <Route exatc path='/cart/:id?' component={CartScreen} />
         </MainLayout>
       </Router>
     </div>

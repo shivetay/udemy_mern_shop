@@ -17,7 +17,7 @@ import Rating from '../../features/Ratings/Rating';
 
 // import products from '../../../../../data/products';
 
-const ProductView = ({ match }) => {
+const ProductView = ({ history, match }) => {
   const [qty, setQty] = useState(0);
   const dispatch = useDispatch();
   const productDetails = useSelector((state) => state.productDetails);
@@ -27,6 +27,10 @@ const ProductView = ({ match }) => {
   useEffect(() => {
     dispatch(detailsProduct(match.params.id));
   }, [dispatch, match]);
+
+  const addToCartHandler = () => {
+    history.push(`/cart/${match.params.id}?qty=${qty}`);
+  };
 
   // const product = products.find((p) => p._id === match.params.id);
   /*
@@ -97,6 +101,7 @@ products.find(p => p._id === match.params.id) will get one product from dummy ar
               )}
               <ListGroup.Item>
                 <Button
+                  onClick={addToCartHandler}
                   className='btn-block'
                   type='button'
                   disabled={product.countInStock === 0}>
