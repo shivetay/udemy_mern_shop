@@ -13,7 +13,7 @@ const ProductView = ({ match }) => {
   const dispatch = useDispatch();
   const productDetails = useSelector((state) => state.productDetails);
 
-  const { loading, error, product } = productDetails;
+  const { product } = productDetails;
 
   useEffect(() => {
     dispatch(detailsProduct(match.params.id));
