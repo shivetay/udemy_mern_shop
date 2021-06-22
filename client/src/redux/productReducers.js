@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 /* action name creator */
-const reducerName = 'project';
+const reducerName = 'product';
 const createActionName = (name) => `app/${reducerName}/${name}`;
 
 /* ACTION TYPES */
