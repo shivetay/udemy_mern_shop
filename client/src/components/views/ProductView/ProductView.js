@@ -18,7 +18,7 @@ import Rating from '../../features/Ratings/Rating';
 // import products from '../../../../../data/products';
 
 const ProductView = ({ history, match }) => {
-  const [qty, setQty] = useState(0);
+  const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
   const productDetails = useSelector((state) => state.productDetails);
 
@@ -30,6 +30,7 @@ const ProductView = ({ history, match }) => {
 
   const addToCartHandler = () => {
     history.push(`/cart/${match.params.id}?qty=${qty}`);
+    console.log(match.params.id, 'btn id');
   };
 
   // const product = products.find((p) => p._id === match.params.id);

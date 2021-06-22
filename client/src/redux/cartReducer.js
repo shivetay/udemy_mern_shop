@@ -41,7 +41,9 @@ export const addItem = (id, qty) => {
         'cartItems',
         JSON.stringify(getState().cart.cartItems)
       );
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
   };
 };
 

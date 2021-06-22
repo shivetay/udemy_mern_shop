@@ -14,7 +14,7 @@ const App = () => {
         <MainLayout>
           <Route exact path='/' component={Home} />
           <Route exact path='/product/:id' component={ProductView} />
-          <Route exatc path='/cart/:id?' component={CartScreen} />
+          <Route path='/cart/:id?' component={CartScreen} />
         </MainLayout>
       </Router>
     </div>
