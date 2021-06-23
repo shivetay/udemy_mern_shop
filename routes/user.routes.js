@@ -1,5 +1,6 @@
 import express from 'express';
-import { authUser } from '../controllers/user.controller';
+import { authUser, getProfile } from '../controllers/user.controller';
+import { protect } from '../middleware/middleware';
 
 const router = express.Router();
 
@@ -10,5 +11,6 @@ const router = express.Router();
 @access public
 */
 router.post('/login', authUser);
+router.route('/profile', protect, getProfile);
 
 export default router;
